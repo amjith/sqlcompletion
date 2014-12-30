@@ -1,5 +1,8 @@
 from sqlcompletion import suggest_type
 
+def test_empty_string_suggests_keywords():
+    suggestion = suggest_type('', len(''))
+    assert suggestion == (['keywords'], [''])
 
 def test_select_suggests_cols_with_table_scope():
     suggestion = suggest_type('SELECT  FROM tabl', len('SELECT '))
